@@ -18,8 +18,21 @@ namespace Tic_Tac_Toe
         public TicTacToe()
         {
             game = new int[,] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
+                              
         }
 
+        public void BeginGame(string playerName, string player2Name)
+        {
 
+        }
+        public void MakeMove(string player, int location)
+        {
+
+        }
+
+        public void DetermineWinner()
+        {
+
+        }
     }
 }
