@@ -9,7 +9,6 @@ namespace Tic_Tac_Toe
     class TicTacToe
     {
         private int[,] game;
-
         public string playerOne = "Player One";
         public string playerTwo = "Player Two";
 
@@ -23,61 +22,113 @@ namespace Tic_Tac_Toe
 
         public void GetTable() 
         {
-            Console.WriteLine($"{game[0, 0]}{game[0, 1]}{game[0, 2]}\n{game[1, 0]}{game[1, 1]}{game[1, 2]}\n{game[2, 0]}{game[2, 1]}{game[2, 2]}");
+            Console.WriteLine($"\n\t{game[0, 0]}{game[0, 1]}{game[0, 2]}\n\t{game[1, 0]}{game[1, 1]}{game[1, 2]}\n\t{game[2, 0]}{game[2, 1]}{game[2, 2]}\n");
         }
-            
-        public string DetermineWinner()
+
+        public void MakeMove(char one, int b, int playerMove)
         {
-            for(int i = 0; i <= 9; i++)
+            int a = 0;
+
+            if (one == 'a')
             {
-                int luckyNumber = 0;
+                a = 0;
+            }
+            else if (one == 'b')
+            {
+                a = 1;
+            }
+            else { a = 2; }
+
+            game[a, b-1] = playerMove;
+        
+        }
+       
+        public void DetermineWinner()
+        {
+
+            for (int i = 0; i <= 9; i++)
+            {
+                string combo = "";
                 switch (i)
                 {
-                    case 0: 
-                        luckyNumber = game[0, 0] + game[1, 1] + game[2, 2];
+                    case 0:
+                        combo = 
+                            game[0, 0].ToString() + game[1, 1].ToString() + game[2, 2].ToString();
                         break;
-                    case 1:                       
-                        luckyNumber = game[0, 2] + game[1, 1] + game[2, 0];
+                    case 1:
+                        combo = 
+                            game[0, 2].ToString() + game[1, 1].ToString() + game[2, 0].ToString();
                         break;
                     case 2:
-                        luckyNumber = game[0, 0] + game[0, 1] + game[0, 2];
+                        combo =
+                            game[0, 0].ToString() + game[0, 1].ToString() + game[0, 2].ToString();
                         break;
                     case 3:
-                        luckyNumber = game[1, 0] + game[1, 1] + game[1, 2];
+                        combo = 
+                            game[1, 0].ToString() + game[1, 1].ToString() + game[1, 2].ToString();
                         break;
                     case 4:
-                        luckyNumber = game[2, 0] + game[2, 1] + game[2, 2];
+                        combo = 
+                            game[2, 0].ToString() + game[2, 1].ToString() + game[2, 2].ToString();
                         break;
                     case 5:
-                        luckyNumber = game[0, 0] + game[1, 0] + game[2, 0];
+                        combo = 
+                            game[0, 0].ToString() + game[1, 0].ToString() + game[2, 0].ToString();
                         break;
                     case 6:
-                        luckyNumber = game[0, 1] + game[1, 1] + game[2, 1];
+                        combo = 
+                            game[0, 1].ToString() + game[1, 1].ToString() + game[2, 1].ToString();
                         break;
                     case 7:
-                        luckyNumber = game[0, 2] + game[1, 2] + game[2, 2];
-                        break;                   
+                        combo =
+                            game[0, 2].ToString() + game[1, 2].ToString() + game[2, 2].ToString();
+                        break;
                 }
 
-                if (luckyNumber == 3)
+                if (combo.Equals("111"))
                 {
-                    return playerOne;
-                }else if (luckyNumber == 6)
-                {
-                    return playerTwo;
+                    Console.WriteLine($"{playerOne}, you are the winner!");
+                    Reset();
                 }
-        
-            }
-
-            return null;
-
+                else if (combo.Equals("222"))
+                {
+                    Console.WriteLine($"{playerTwo}, you are the winner!");
+                    Reset();
+                }
+            }                         
         }
 
+        public void Reset()
+        {
+            
 
+            game[0, 0] = 0;
+            game[0, 1] = 0;
+            game[0, 2] = 0;
+            game[1, 0] = 0;
+            game[1, 1] = 0;
+            game[1, 2] = 0;
+            game[2, 0] = 0;
+            game[2, 1] = 0;
+            game[2, 2] = 0;
 
+            GetTable();
 
-
+            
+        }
     }
+}
+
+
+
+   
+   
+        
+
+
+
+
+
+   
 
         
-}
