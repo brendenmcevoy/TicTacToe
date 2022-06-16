@@ -42,21 +42,22 @@ namespace Tic_Tac_Toe
             game[a, b-1] = playerMove;
         
         }
-       
+
         public void DetermineWinner()
         {
 
             for (int i = 0; i <= 9; i++)
             {
                 string combo = "";
+                
                 switch (i)
                 {
                     case 0:
-                        combo = 
+                        combo =
                             game[0, 0].ToString() + game[1, 1].ToString() + game[2, 2].ToString();
                         break;
                     case 1:
-                        combo = 
+                        combo =
                             game[0, 2].ToString() + game[1, 1].ToString() + game[2, 0].ToString();
                         break;
                     case 2:
@@ -64,19 +65,19 @@ namespace Tic_Tac_Toe
                             game[0, 0].ToString() + game[0, 1].ToString() + game[0, 2].ToString();
                         break;
                     case 3:
-                        combo = 
+                        combo =
                             game[1, 0].ToString() + game[1, 1].ToString() + game[1, 2].ToString();
                         break;
                     case 4:
-                        combo = 
+                        combo =
                             game[2, 0].ToString() + game[2, 1].ToString() + game[2, 2].ToString();
                         break;
                     case 5:
-                        combo = 
+                        combo =
                             game[0, 0].ToString() + game[1, 0].ToString() + game[2, 0].ToString();
                         break;
                     case 6:
-                        combo = 
+                        combo =
                             game[0, 1].ToString() + game[1, 1].ToString() + game[2, 1].ToString();
                         break;
                     case 7:
@@ -89,19 +90,38 @@ namespace Tic_Tac_Toe
                 {
                     Console.WriteLine($"{playerOne}, you are the winner!");
                     Reset();
+
                 }
                 else if (combo.Equals("222"))
                 {
                     Console.WriteLine($"{playerTwo}, you are the winner!");
                     Reset();
+
                 }
-            }                         
+
+                CheckForDraw();
+            }
+        }   
+
+        public void CheckForDraw()
+        {
+            int counter = 0;
+            for (int i = 0; i <= 2; i++)
+            {
+                if(game[0,i] != 0)
+                {
+                    counter++;
+                }
+                if(game[i,0] != 0)
+                {
+                    counter++;
+                }
+            }
+
         }
 
         public void Reset()
-        {
-            
-
+        {                        
             game[0, 0] = 0;
             game[0, 1] = 0;
             game[0, 2] = 0;
@@ -112,9 +132,7 @@ namespace Tic_Tac_Toe
             game[2, 1] = 0;
             game[2, 2] = 0;
 
-            GetTable();
-
-            
+            GetTable();            
         }
     }
 }

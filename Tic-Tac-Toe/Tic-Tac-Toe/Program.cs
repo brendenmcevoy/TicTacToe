@@ -32,7 +32,9 @@ namespace Tic_Tac_Toe
 
                 game.MakeMove(move1, move2, playerTurn);
                 game.GetTable();
-                game.DetermineWinner();              
+                game.DetermineWinner();
+
+               
             }
             
 
