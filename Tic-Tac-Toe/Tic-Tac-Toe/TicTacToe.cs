@@ -39,7 +39,13 @@ namespace Tic_Tac_Toe
             }
             else { a = 2; }
 
-            game[a, b-1] = playerMove;
+            if(game[a,b-1] == 1 || game[a,b-1] == 2)
+            {
+                Console.WriteLine("Space already taken, try another move.");
+            }
+            else { game[a, b - 1] = playerMove; }
+
+            
         
         }
 
