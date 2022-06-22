@@ -20,10 +20,10 @@ namespace Tic_Tac_Toe
 
                 Console.WriteLine($"Input 'a, b, or c'.");
                 var move1 = char.Parse(Console.ReadLine());
-               
+                            
                 Console.WriteLine("Input '1, 2, or 3.'");
                 var move2 = int.Parse(Console.ReadLine());
-
+                
                 if (c % 2 == 0) 
                 {
                     playerTurn = 1;
@@ -33,6 +33,18 @@ namespace Tic_Tac_Toe
                 game.MakeMove(move1, move2, playerTurn);
                 game.GetTable();
                 game.DetermineWinner();
+
+                if(game.DetermineWinner() == 1 || game.DetermineWinner() == 2)
+                {
+                    Console.WriteLine($"{playerTurn} is the winner!");
+                    c = 10;
+                }else if(game.DetermineWinner() == 3)
+                {
+                    Console.WriteLine($"It is a draw!");
+                    c = 10;
+                }
+
+                
 
                
             }

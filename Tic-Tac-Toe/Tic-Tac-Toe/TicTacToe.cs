@@ -8,17 +8,15 @@ namespace Tic_Tac_Toe
 {
     class TicTacToe
     {
-        private int[,] game;
+        private readonly int[,] game;
         public string playerOne = "Player One";
         public string playerTwo = "Player Two";
 
 
 
-        public TicTacToe()
-        {
-           game = new int[3, 3];
+        public TicTacToe() => game = new int[3, 3];
 
-        }
+        
 
         public void GetTable() 
         {
@@ -37,95 +35,55 @@ namespace Tic_Tac_Toe
             {
                 a = 1;
             }
-            else { a = 2; }
-
-            if(game[a,b-1] == 1 || game[a,b-1] == 2)
+            else if (one == 'c')
             {
-                Console.WriteLine("Space already taken, try another move.");
+                a = 2;
             }
-            else { game[a, b - 1] = playerMove; }
+            else { Console.WriteLine("Incorrect character."); }
 
-            
-        
+            try
+            {
+                if (game[a, b - 1] == 1 || game[a, b - 1] == 2)
+                {
+                    Console.WriteLine("Space already taken, try another move.");
+                }
+                else { game[a, b - 1] = playerMove; }
+            }
+            catch (IndexOutOfRangeException ex)
+            {   
+               Console.WriteLine(ex.Message);
+                Console.WriteLine("Number must be 1, 2, or 3.");
+            }                                  
         }
 
-        public void DetermineWinner()
+        public int DetermineWinner()
         {
 
-            for (int i = 0; i <= 9; i++)
+            for (int i = 0; i < 3; i++)
             {
-                string combo = "";
-                
-                switch (i)
+                if((game[i, 0] != 0 && game [i,1] != 0 && game[i,2] != 0) && (game [i, 0] == game[i,1]) && game[i,1] == game[i, 2])
                 {
-                    case 0:
-                        combo =
-                            game[0, 0].ToString() + game[1, 1].ToString() + game[2, 2].ToString();
-                        break;
-                    case 1:
-                        combo =
-                            game[0, 2].ToString() + game[1, 1].ToString() + game[2, 0].ToString();
-                        break;
-                    case 2:
-                        combo =
-                            game[0, 0].ToString() + game[0, 1].ToString() + game[0, 2].ToString();
-                        break;
-                    case 3:
-                        combo =
-                            game[1, 0].ToString() + game[1, 1].ToString() + game[1, 2].ToString();
-                        break;
-                    case 4:
-                        combo =
-                            game[2, 0].ToString() + game[2, 1].ToString() + game[2, 2].ToString();
-                        break;
-                    case 5:
-                        combo =
-                            game[0, 0].ToString() + game[1, 0].ToString() + game[2, 0].ToString();
-                        break;
-                    case 6:
-                        combo =
-                            game[0, 1].ToString() + game[1, 1].ToString() + game[2, 1].ToString();
-                        break;
-                    case 7:
-                        combo =
-                            game[0, 2].ToString() + game[1, 2].ToString() + game[2, 2].ToString();
-                        break;
+                    return game[i, 0];
                 }
 
-                if (combo.Equals("111"))
+                if ((game[0, 0] != 0 && game[1, 1] != 0 && game[2,2] != 0) && (game[0, 0] == game[1, 1]) && game[1, 1] == game[2, 2])
                 {
-                    Console.WriteLine($"{playerOne}, you are the winner!");
-                    Reset();
-
-                }
-                else if (combo.Equals("222"))
-                {
-                    Console.WriteLine($"{playerTwo}, you are the winner!");
-                    Reset();
-
+                    return game[0, 0];
                 }
 
-                CheckForDraw();
+                if ((game[0, 2] != 0 && game[1, 1] != 0 && game[2,0] != 0) && (game[0, 2] == game[1, 1]) && game[1, 1] == game[2, 0])
+                {
+                    return game[0, 0];
+                }
+
+                if ((game[0, 0] != 0 && game[0, 1] != 0 && game[0,2] != 0 && game[1,0] != 0 && game[1,1] != 0 && game[1,2] != 0 && game[2,0] != 0 && game[2,1] != 0 && game[2,2] != 0))
+                {
+                    return 3;
+                }
             }
+            return 0;
         }   
-
-        public void CheckForDraw()
-        {
-            int counter = 0;
-            for (int i = 0; i <= 2; i++)
-            {
-                if(game[0,i] != 0)
-                {
-                    counter++;
-                }
-                if(game[i,0] != 0)
-                {
-                    counter++;
-                }
-            }
-
-        }
-
+                
         public void Reset()
         {                        
             game[0, 0] = 0;

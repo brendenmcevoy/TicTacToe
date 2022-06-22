@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\beanwater\\Source\\Repos\\TicTacToe\\Tic-Tac-Toe\\Tic-Tac-Toe\\Tic-Tac-Toe.csproj": {}
+    "C:\\Users\\beanwater\\source\\repos\\TicTacToe\\Tic-Tac-Toe\\Tic-Tac-Toe\\Tic-Tac-Toe.csproj": {}
   },
   "projects": {
-    "C:\\Users\\beanwater\\Source\\Repos\\TicTacToe\\Tic-Tac-Toe\\Tic-Tac-Toe\\Tic-Tac-Toe.csproj": {
+    "C:\\Users\\beanwater\\source\\repos\\TicTacToe\\Tic-Tac-Toe\\Tic-Tac-Toe\\Tic-Tac-Toe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\beanwater\\Source\\Repos\\TicTacToe\\Tic-Tac-Toe\\Tic-Tac-Toe\\Tic-Tac-Toe.csproj",
+        "projectUniqueName": "C:\\Users\\beanwater\\source\\repos\\TicTacToe\\Tic-Tac-Toe\\Tic-Tac-Toe\\Tic-Tac-Toe.csproj",
         "projectName": "Tic-Tac-Toe",
-        "projectPath": "C:\\Users\\beanwater\\Source\\Repos\\TicTacToe\\Tic-Tac-Toe\\Tic-Tac-Toe\\Tic-Tac-Toe.csproj",
+        "projectPath": "C:\\Users\\beanwater\\source\\repos\\TicTacToe\\Tic-Tac-Toe\\Tic-Tac-Toe\\Tic-Tac-Toe.csproj",
         "packagesPath": "C:\\Users\\beanwater\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\beanwater\\Source\\Repos\\TicTacToe\\Tic-Tac-Toe\\Tic-Tac-Toe\\obj\\",
+        "outputPath": "C:\\Users\\beanwater\\source\\repos\\TicTacToe\\Tic-Tac-Toe\\Tic-Tac-Toe\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
